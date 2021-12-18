@@ -85,16 +85,7 @@ function SpecificStockHistory(){
             <net_back>%3.9</net_back>
             <p3>Stock Net Value:</p3>
             <over_back>$1,221.02</over_back>
-            <table val = "1">
-                <caption>Dividend Information</caption>
-                <tr>
-                    <th scope="col">Ticker</th>
-                    <th>Dividend Yield(%)</th>
-                    <th>Dividend Last Paid($)</th>
-                    <th>Total Accumulated($)</th>
-                    <th>Account</th>
-                </tr>
-            </table>
+            
             <table val = "3">
                 <caption>Shares Information</caption>
                 <tr>

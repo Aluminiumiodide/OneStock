@@ -55,6 +55,7 @@ const StockOrderHistory = () => {
 
                         <Button href="/ModifyOrder" >Modify Order</Button>
                         <Button href="/DeleteOrder" >Delete Order</Button>
+                       
                         <Button href="/AddBrokerage" >Add Brokerage</Button>
                         <Button href="/AddAccount" >Add Account</Button>
                         
