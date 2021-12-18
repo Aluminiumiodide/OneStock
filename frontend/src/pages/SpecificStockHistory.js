@@ -7,18 +7,23 @@ function SpecificStockHistory() {
     const [orders, setOrders] = useState(null);
     const [entrydividend, setDividend] = useState(null);
     const [specificStockHistory, setStockHistory] = useState(null);
-    const [ticker, setTicker] = useState('');
+    const [a, seta] = useState([]);
+    const [ticker, setTicker] = useState(null);
+    let tickerorders = null;
 
-
-    // useEffect(() => {
-    //     // GET request using fetch inside useEffect React hook
-    //     fetch('http://localhost:8000/api/SpecificStockOrderHistoryGetPost/?format=json&ticker='+ticker)
-    //         .then(response => response.json())
-    //         .then(data => setentrys(data));
-
-
-    // // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    // }, []);
+    useEffect(() => {
+        axiosInstance
+            .get('StockOrdersGetPost/')
+            .then(response => {
+                setOrders(response.data);
+            })
+            .catch((err) => {
+                console.log(err)
+                alert("permission denied");
+            }
+            );
+       
+    }, []);
 
 
 
@@ -38,20 +43,31 @@ function SpecificStockHistory() {
 
             );
 
-
-
-        axiosInstance
-            .get('StockOrdersGetPost/')
-            .then(response => {
-                setOrders(response.data);
-            })
-            .catch((err) => {
-                console.log(err)
-                alert("permission denied");
+        
+            
+            let k =0;
+            {orders&&
+                orders.map((b) => (
+                tickerorders[k] = b
+                
+                ))
+                k++;
             }
-
-
-            );
+            seta(tickerorders)
+            // for (var i = 0; i < orders.length; i++) {
+            //     if (orders[i].ticker == "abc") {
+            //         tickerorders[0] = orders[i];
+            //         k++;
+            //         seta(
+            //             a.map(item => 
+            //                 item.id === index 
+            //                 ? {...item, someProp : "changed"} 
+            //                 : item 
+            //         ))
+                    
+            //     }
+            // }
+            
 
     }
 
@@ -95,6 +111,16 @@ function SpecificStockHistory() {
                         <th>Date</th>
                         <th>Account</th>
                     </tr>
+                    {a &&
+                        a.map((b) => (
+                            <tr>
+                                <th>{b.id}</th>
+                                <th>{b.ticker}</th>
+                                
+
+                            </tr>
+                        ))
+                    }
                 </table>
 
 

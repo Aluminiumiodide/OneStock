@@ -98,8 +98,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'onestock',
-        'USER': 'mohtashim',
-        'PASSWORD': '4202113',
+        'USER': 'alaa',
+        'PASSWORD': 'password',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
